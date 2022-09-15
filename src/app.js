@@ -5,6 +5,7 @@ const swaggerUi = require("swagger-ui-express")
 const path = require('path')
 require("./middleware/auth.middleware")(passport);
 
+
 //*Archivos de rutas
 const userRouter = require("./users/users.router").router;
 const authRouter = require("./auth/auth.router").router;
@@ -22,7 +23,7 @@ const {db} = require('./utils/database')
 
 //* Configuraciones iniciales
 const app = express();
-
+const PORT = process.env.PORT || 8000;
 initModels()
 
 db.authenticate()
@@ -99,8 +100,8 @@ app.get("/ejemplo",
   }
 );
 
-app.listen(8000, () => {
-  console.log("Server started at port 8000");
+app.listen(PORT, () => {
+  console.log(`Server started at port ${PORT}`);
 });
 
 exports.default = app
