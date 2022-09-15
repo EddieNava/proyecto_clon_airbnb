@@ -1,0 +1,88 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "API Rest Clon de Airbnb",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/users": {
+            "get": {
+                "description": "Obtener todos mis usuarios",
+                "tags": ["Users", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Obtenemos exitosamente todos los usuarios"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resuelva"
+                    }
+                }
+            }
+        },
+        "/api/v1/users/{id}": {
+            "get":{
+                "parameters":[
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del usuario",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Se obtiene el usuario con ID propocionado",
+                "tags": ["Users", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Se Obtiene exitosamente el usuario"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resuelva"
+                    }
+                }
+            },
+            "delete":{
+                "parameters":[
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del usuario",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Borrar su propio usuario",
+                "tags": ["Users", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Se borra exitosamente su usuario"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resuelva"
+                    }
+                }
+            },
+            "put":{
+                "parameters":[
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del usuario",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Editar su propio usuario",
+                "tags": ["Users", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Se edita exitosamente su usuario"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resuelva"
+                    }
+                }
+            }
+        }
+    }
+}
